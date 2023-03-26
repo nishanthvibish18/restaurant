@@ -47,10 +47,10 @@ resrouter.delete('/cancelorder',async (req,res) => {
       _id: req.body._id
   }, (err, result) => {
       if (err){
-          res.send({result: 'failure',statusCode: 400,message:'item unable to delete'});
+          res.status(400).send({result: 'failure',message:'item unable to delete'});
       }
       else{
-          res.send({result: 'success',statusCode: 201,message:'item delete successfully'});
+          res.status(200).send({result: 'success',message:'item delete successfully'});
 
       }
   });
