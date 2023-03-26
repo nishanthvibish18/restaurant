@@ -41,6 +41,21 @@ resrouter.get('/getorders', async (req,res) =>{
    }
 })
 
+resrouter.delete('/cancelorder',async (req,res) => {
+   
+   let deletDatas = model.deleteOne({
+      _id: req.body._id
+  }, (err, result) => {
+      if (err){
+          res.send({result: 'failure',statusCode: 400,message:'item unable to delete'});
+      }
+      else{
+          res.send({result: 'success',statusCode: 201,message:'item delete successfully'});
+
+      }
+  });
+})
+
 
 
 
