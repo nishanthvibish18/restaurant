@@ -25,6 +25,21 @@ resrouter.post('/createbasket', async (req, res) => {
 
 })
 
+resrouter.get('/getorders', async (req,res) =>{
+
+   try{
+      const foodModels = await model.find({})
+      if(foodModels.length > 0){
+         res.status(200).send({status:'success',message:'data retrieved',response:foodModels})
+      }
+      else{
+         res.status(201).send({status:'success',message:'no data found',response:[]})
+      }
+   }
+   catch(error){
+      res.status(400).send({status:'failed',message:'unable to list data'})
+   }
+})
 
 
 
